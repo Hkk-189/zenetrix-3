@@ -1,0 +1,50 @@
+# Solution: User-Controlled Financial Identity Verification
+
+## What This Solution Does
+
+This system lets people own and control their own identity credentials - like a digital wallet that holds verified IDs. Users can share these credentials with banks and financial companies without showing their actual documents or personal information.
+
+## How It Works
+
+### 1. User Gets a Digital Identity Wallet
+- User downloads a mobile app and registers with their phone number
+- They verify their identity once (this is the "one-time KYC")
+- The app stores their verified credentials securely on their phone
+
+### 2. Smart Protection Against Fraud
+- During video verification, the system checks if the person is real (not a deepfake video)
+- It detects if someone is trying to use a photo, video, or mask to impersonate someone else
+- If anything looks suspicious, it flags it for review
+
+### 3. Sharing Credentials Safely
+- When a bank needs to verify the user, they ask through the app
+- User sees exactly what information the bank wants
+- User approves with their fingerprint or face
+- Bank gets a "proof" that verifies the info without seeing the actual documents
+
+### 4. No More Repeated KYC
+- Once verified, user can use their digital credential for any bank
+- No need to submit documents again and again
+- Saves time for users, reduces costs for banks
+
+## Why This Matters
+
+- **Stops deepfakes**: AI-powered detection in Edge Functions prevents fake videos.
+- **Protects privacy**: Supabase Row Level Security ensures only you see your data.
+- **Saves time**: One verification works everywhere via the digital wallet.
+- **Inclusive design**: Works on basic phones, supports multiple languages.
+- **Following rules**: Built on secure cloud infrastructure matching Indian regulations.
+
+## What Users Need To Do
+
+1. Download the app and register
+2. Complete one-time identity verification
+3. When a bank needs verification, approve the request
+4. That's it - no more document submissions
+
+## What Banks Need To Do
+
+1. Integrate with our Supabase-powered verification API.
+2. Send verification requests through our secure gateway.
+3. Receive instant proof verification results.
+4. Reduce onboarding time and costs.

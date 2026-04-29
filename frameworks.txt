@@ -1,0 +1,76 @@
+# Tech Stack & Frameworks
+
+## Overview
+
+This solution uses modern, battle-tested technologies that are popular in the industry. We chose these because they are:
+- Well-supported and actively maintained
+- Easy to find developers for
+- Suitable for the prototype phase with easy migration to production
+
+---
+
+## Backend & Infrastructure
+- **Supabase (Backend as a Service)**: Replaces Node.js server, Auth, and custom database management.
+- **PostgreSQL**: Core database with Row Level Security (RLS) for data isolation.
+- **Supabase Auth**: Handles registration, login, and secure sessions (JWT-based).
+- **Supabase Edge Functions (Deno)**: Serverless logic for APIs and ML stubs.
+- **Supabase Storage**: Secure bucket storage for biometric and credential artifacts.
+- **AES-256-GCM**: Applied for column-level encryption of sensitive identity attributes.
+
+---
+
+## Webapp (Frontend)
+- **React + Vite**: Modern frontend library and build tool.
+- **Supabase JS Client**: SDK for direct interaction with Auth, DB, and Storage.
+- **React Router**: For SPA navigation.
+- **Tailwind CSS**: For rapid, premium UI design.
+
+---
+
+## ML & Detection (Edge Functions)
+- **Edge Functions (Deno/TS)**: Host detection logic and model stubs.
+- **WASM / ONNX Runtime**: For running future ML models at the edge.
+- **Face Recognition Stubs**: Simple logic returning scores for liveness and match.
+
+---
+
+## Privacy & Security
+
+### Zero-Knowledge Proofs (Mocked)
+- **What it is**: Cryptographic proofs that verify something without revealing data
+- **Why we use it**: Let users prove their age/income without showing documents
+- **Implementation**: BBS+ signatures stubbed for prototype
+
+### BBS+ Signatures
+- **What it is**: A signature scheme for selective disclosure
+- **Usage**: Unlinkable proofs - bank can't tell if you verified for another bank
+
+---
+
+## Development Tools
+- **Supabase CLI**: Local development environment (replaces custom Docker Compose).
+- **REST API (PostgreSQL + PostgREST)**: Automatically generated APIs for tables.
+- **OpenAPI / api-spec.yaml**: Standard API contract for institution integration.
+
+---
+
+## Dependencies (Key Packages)
+- **Frontend**: `@supabase/supabase-js`, `react`, `react-router-dom`, `axios`, `tailwindcss`.
+- **Edge Functions**: Standard Deno libraries, `postgres` (for direct DB access if needed).
+- **Security**: `browser-crypto` for client-side encryption stubs.
+
+---
+
+## Project Structure (Supabase-Native)
+- `supabase/functions/`: Logic for verification and risk scoring.
+- `supabase/migrations/`: SQL files for tables, RLS policies, and triggers.
+- `frontend/src/`: React source with Supabase client integration.
+- `docs/`: API contracts and compliance mapping.
+
+---
+
+## API Endpoints (Edge Functions)
+- **POST /functions/v1/enroll**: Initial user onboarding.
+- **POST /functions/v1/verify**: Credential verification for institutions.
+- **POST /functions/v1/liveness**: Deepfake/liveness detection logic.
+- **POST /functions/v1/consent**: Manage and approve sharing requests.
